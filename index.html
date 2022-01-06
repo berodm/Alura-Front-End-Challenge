@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style-index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class='header-logo' href="./index.html" data-logo>
+            <img class="header-logo" src="./images/icon-logo.svg" alt="Logo Alura">
+        </a>
+        <input class="input-pattern header-search-input" type="text" placeholder="Search Something" data-header-input>
+        <div class="header-nav-buttons">
+          <button class="header-search-btn" data-search-button></button>
+          <button class="header-menu-btn" data-menu-button></button>
+        </div>
+        <div class="header-profile" data-profile>
+          <img class="header-user-profile-img" src="./images/1578663628478.jfif" alt="Profile Picture">
+          <span class="header-user-name">Beatriz</span>
+        </div>
+        <nav class="header-nav-mobile" data-nav-mobile></nav>
+    </header>
+    <main>
+      <aside class="menu">
+        <h2 class="menu-title">Menu</h2>
+        <ul class="menu-list" data-menu-list>
+          <li class="menu-container no-opacity">
+            <a href="./index.html" class="menu-icon-container">
+              <img class="menu-icon" src="./images/icon_code.svg" alt=""><span>Code Editor</span>
+            </a>
+          </li>
+          <li class="menu-container with-opacity">
+            <a href="./Community.html" class="menu-icon-container">
+              <img class="menu-icon" src="./images/icon_users.svg" alt=""><span>Community</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <section class="code">
+        <div class="code-wrapper" data-color-frame>
+          <div class="code-container">
+            <img class="code-mac-icon" src="./images/icon-mac.svg" alt="">
+            <code class="code-area" spellcheck="false" contenteditable="true" aria-label="Code Editor" data-code-editor>
+              const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}
+            </code>
+          </div>
+        </div>
+        <button class="btn-pattern btn-outline btn-code">Highlight Visualization</button>
+      </section>
+      <section class="settings">
+        <h2 class="settings-title">Your Project</h2>
+        <input class="input-pattern settings-input-name" type="text" placeholder="Project's name">
+        <textarea class="input-pattern settings-input-description" name="" type="text" placeholder="Project Description"></textarea>
+        <h2 class="settings-title">Customization</h2>
+        <div class="settings-customization">
+          <select class="input-pattern settings-input-lang" data-code-lang>
+            <option value="xml">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript" selected>JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+          </select>
+          <div class="settings-input-color-wrapper">
+            <input class="settings-input-color-btn" type="color" value="#6BD1FF" data-color-picker-button>
+          </div>
+        </div>
+        <button class="btn-pattern btn-filled settings-save-button">Submit</button>
+      </section>
+    </main>
+  <script src="./colorpicker.js"></script>
+  <script src="./nav-mobile.js"></script>
+</body>
+</html>
